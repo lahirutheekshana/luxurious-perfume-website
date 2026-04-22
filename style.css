@@ -1,0 +1,519 @@
+/* =========================================
+   Aura Aromatics - Premium Perfume Website
+   CSS Design System
+========================================= */
+
+:root {
+    /* Color Palette */
+    --bg-color: #0a0a0a;
+    --surface-color: #161616;
+    --text-primary: #f5f5f5;
+    --text-secondary: #a0a0a0;
+    --accent-gold: #d4af37;
+    --accent-gold-hover: #f1c944;
+    --border-color: rgba(255, 255, 255, 0.1);
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+    
+    /* Spacing & Layout */
+    --container-max-width: 1200px;
+    --section-padding: 100px 20px;
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 400;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+ul {
+    list-style: none;
+}
+
+/* =========================================
+   Navigation (Header)
+========================================= */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 25px 0;
+    transition: var(--transition-smooth);
+    background: transparent;
+}
+
+header.scrolled {
+    padding: 15px 0;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    letter-spacing: 4px;
+    color: var(--accent-gold);
+}
+
+nav ul {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--accent-gold);
+    transition: var(--transition-smooth);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.cart-icon {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart-count {
+    background: var(--accent-gold);
+    color: var(--bg-color);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* =========================================
+   Hero Section
+========================================= */
+.hero {
+    height: 100vh;
+    min-height: 700px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-size: 5.5rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: #fff;
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 16px 40px;
+    background-color: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: var(--accent-gold);
+    color: var(--bg-color);
+}
+
+/* =========================================
+   Collection Section
+========================================= */
+.collection-section {
+    padding: var(--section-padding);
+    background-color: var(--bg-color);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background-color: var(--accent-gold);
+    margin: 0 auto;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-gold);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background-color: #050505;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-card:hover .image-wrapper img {
+    transform: scale(1.05);
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-smooth);
+    display: flex;
+    justify-content: center;
+}
+
+.product-card:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.add-to-cart {
+    width: 100%;
+    padding: 14px 0;
+    background-color: var(--accent-gold);
+    color: var(--bg-color);
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: var(--accent-gold-hover);
+}
+
+.product-info {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.product-info .notes {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.product-info .price {
+    font-size: 1.1rem;
+    color: var(--accent-gold);
+}
+
+/* =========================================
+   Philosophy Section
+========================================= */
+.philosophy-section {
+    padding: 120px 20px;
+    background-color: var(--surface-color);
+    text-align: center;
+}
+
+.philosophy-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.philosophy-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+}
+
+.philosophy-content .divider {
+    margin-bottom: 32px;
+}
+
+.philosophy-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+/* =========================================
+   Footer
+========================================= */
+footer {
+    background-color: #050505;
+    padding: 80px 20px 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-brand h3 {
+    font-size: 1.8rem;
+    color: var(--accent-gold);
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+}
+
+.footer-brand p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    max-width: 250px;
+}
+
+.footer-links h4, .footer-newsletter h4 {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links ul a {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.footer-links ul a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-newsletter p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+}
+
+.input-group {
+    display: flex;
+    border-bottom: 1px solid var(--text-secondary);
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 10px 0;
+    flex-grow: 1;
+    font-family: var(--font-body);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+}
+
+.input-group button {
+    background: transparent;
+    border: none;
+    color: var(--accent-gold);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: transform 0.3s;
+}
+
+.input-group button:hover {
+    transform: translateX(5px);
+}
+
+.footer-bottom {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: #666;
+    font-size: 0.8rem;
+}
+
+/* =========================================
+   Animations & Interactivity
+========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in-up.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   Responsive Design
+========================================= */
+@media (max-width: 992px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 20px;
+    }
+    nav {
+        display: none; /* In a real app, implement a hamburger menu here */
+    }
+    .hero h1 {
+        font-size: 3rem;
+    }
+    .section-header h2 {
+        font-size: 2rem;
+    }
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
